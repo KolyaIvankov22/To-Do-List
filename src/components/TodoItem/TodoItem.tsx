@@ -2,7 +2,13 @@ import styles from "./todoItem.module.css";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { TbTrash } from "react-icons/tb";
 
-export default function TodoItem({ task, onDelete, onComplete }) {
+import { TodoItemProps } from "../../ts/interfaces/Interface";
+
+export default function TodoItem({
+  task,
+  onDelete,
+  onComplete,
+}: TodoItemProps) {
   return (
     <div className={styles.task}>
       <button

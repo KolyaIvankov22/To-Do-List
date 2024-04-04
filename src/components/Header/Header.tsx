@@ -1,12 +1,14 @@
-import styles from "./header.module.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
+import { HeaderProps } from "../../ts/interfaces/Interface";
 
-export function Header({ handleAddTask }) {
-  const [inputValue, setInputValue] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+import styles from "./header.module.css";
 
-  const handleSubmit = (e) => {
+export function Header({ handleAddTask }: HeaderProps) {
+  const [inputValue, setInputValue] = useState<string>("");
+  const [submitted, setSubmitted] = useState<boolean>(false);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!inputValue.trim()) {
       setSubmitted(true);
@@ -19,7 +21,7 @@ export function Header({ handleAddTask }) {
     setInputValue("");
   };
 
-  const handleInput = (e) => {
+  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (value.length <= 50) {
       setInputValue(value);

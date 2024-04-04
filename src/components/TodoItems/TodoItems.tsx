@@ -1,20 +1,15 @@
 import { useState } from "react";
+import { TodoItemsProps } from "../../ts/interfaces/Interface";
+
 import TodoItem from "../TodoItem/TodoItem";
+
 import styles from "./todoItems.module.css";
 
-interface Task {
-  id: number;
-  title: string;
-  isCompleted: boolean;
-}
-
-interface Props {
-  tasks: Task[];
-  onDelete: (id: number) => void;
-  onComplete: (id: number) => void;
-}
-
-export default function TodoItems({ tasks, onDelete, onComplete }: Props) {
+export default function TodoItems({
+  tasks,
+  onDelete,
+  onComplete,
+}: TodoItemsProps) {
   const [statusFilter, setStatusFilter] = useState("all");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 

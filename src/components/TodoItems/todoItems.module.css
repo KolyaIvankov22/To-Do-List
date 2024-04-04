@@ -1,0 +1,82 @@
+.tasks {
+  width: 100%;
+  max-width: 736px;
+  margin: 0 auto;
+  margin-top: 90px;
+  padding: 0 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.header > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header p {
+  color: #4ea8de;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.textPurple {
+  color: #8284fa !important;
+  cursor: pointer;
+}
+
+.header span {
+  background: #333333;
+  color: #d9d9d9;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dropdownHeader {
+  display: flex;
+  gap: 10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dropdownContent {
+  display: flex;
+  flex-direction: column;
+  background-color: #333333;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
+  padding: 4px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dropdownIcon {
+  cursor: pointer;
+}
+
+.dropdownItem {
+  padding: 4px 16px;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: #f0f0f0;
+}
+
+.clearList {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+}

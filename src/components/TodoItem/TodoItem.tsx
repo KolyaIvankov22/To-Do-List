@@ -9,6 +9,8 @@ export default function TodoItem({
   onDelete,
   onComplete,
 }: TodoItemProps) {
+  console.log(task);
+
   return (
     <div className={styles.task}>
       <button

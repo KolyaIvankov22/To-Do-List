@@ -17,6 +17,7 @@ export function Header({ handleAddTask }: HeaderProps) {
       }, 500);
       return;
     }
+
     handleAddTask(inputValue);
     setInputValue("");
   };

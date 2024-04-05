@@ -13,12 +13,15 @@ export default function TodoItems({
   const [statusFilter, setStatusFilter] = useState("all");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const filteredTasks = tasks.filter((task) => {
-    if (statusFilter === "all") return true;
-    if (statusFilter === "completed") return task.isCompleted;
-    if (statusFilter === "in progress") return !task.isCompleted;
-    return false;
-  });
+  const filteredTasks =
+    tasks && Array.isArray(tasks)
+      ? tasks.filter((task) => {
+          if (statusFilter === "all") return true;
+          if (statusFilter === "completed") return task.isCompleted;
+          if (statusFilter === "in progress") return !task.isCompleted;
+          return false;
+        })
+      : [];
 
   const tasksQuantity = filteredTasks.length;
 
@@ -70,9 +73,9 @@ export default function TodoItems({
         <div className={styles.clearList}>Your task list is empty</div>
       ) : (
         <div className={styles.list}>
-          {filteredTasks.map((task) => (
+          {filteredTasks.map((task, index) => (
             <TodoItem
-              key={task.id}
+              key={index}
               task={task}
               onDelete={onDelete}
               onComplete={onComplete}

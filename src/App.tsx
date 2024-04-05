@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     loadSavedTasks();
-  }, []);
+  }, [loadSavedTasks]);
 
   return (
     <>

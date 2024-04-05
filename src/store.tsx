@@ -11,6 +11,8 @@ export const useTodoStore = create<TodoStore>((set) => ({
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (saved) {
       set({ tasks: JSON.parse(saved) });
+    } else {
+      set({ tasks: [] });
     }
   },
   setTasksAndSave: (newTasks) => {

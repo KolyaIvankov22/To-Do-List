@@ -8,11 +8,12 @@ export interface TodoStore {
 }
 
 export interface HeaderProps {
+  tasks: Task[];
   handleAddTask: (taskTitle: string) => void;
 }
 
 export interface Task {
-  id: number;
+  id: string;
   title: string;
   isCompleted: boolean;
 }
@@ -25,6 +26,6 @@ export interface TodoItemsProps {
 
 export interface TodoItemProps {
   task: Task;
-  onDelete: (id: number) => void;
-  onComplete: (id: number) => void;
+  onDelete: (id: string) => void;
+  onComplete: (id: string) => void;
 }

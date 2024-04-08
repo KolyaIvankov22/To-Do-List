@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <Header handleAddTask={addTask} />
+      <Header handleAddTask={addTask} tasks={tasks} />
       <TodoItems
         tasks={tasks}
         onDelete={deleteTaskById}

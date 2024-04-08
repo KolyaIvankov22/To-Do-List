@@ -1,12 +1,15 @@
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { HeaderProps } from "../../ts/interfaces/Interface";
+import { useTodoStore } from "../../store";
+import { v4 as uuidv4 } from "uuid";
 
 import styles from "./header.module.css";
 
-export function Header({ handleAddTask }: HeaderProps) {
+export function Header({ handleAddTask, tasks }: HeaderProps) {
   const [inputValue, setInputValue] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const setTasksAndSave = useTodoStore((state) => state.setTasksAndSave);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,6 +23,11 @@ export function Header({ handleAddTask }: HeaderProps) {
 
     handleAddTask(inputValue);
     setInputValue("");
+
+    setTasksAndSave([
+      ...tasks,
+      { id: uuidv4(), title: inputValue, isCompleted: false },
+    ]);
   };
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {

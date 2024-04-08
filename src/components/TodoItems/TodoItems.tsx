@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TodoItemsProps } from "../../ts/interfaces/Interface";
+import { FaInbox } from "react-icons/fa";
 
 import TodoItem from "../TodoItem/TodoItem";
 
@@ -70,7 +71,9 @@ export default function TodoItems({
       </header>
 
       {tasksQuantity === 0 ? (
-        <div className={styles.clearList}>Your task list is empty</div>
+        <div className={styles.clearList}>
+          <FaInbox />
+        </div>
       ) : (
         <div className={styles.list}>
           {filteredTasks.map((task, index) => (

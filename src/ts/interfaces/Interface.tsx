@@ -3,8 +3,8 @@ export interface TodoStore {
   loadSavedTasks: () => void;
   setTasksAndSave: (newTasks: Task[]) => void;
   addTask: (taskTitle: string) => void;
-  deleteTaskById: (taskId: number) => void;
-  toggleTaskCompletedById: (taskId: number) => void;
+  deleteTaskById: (taskId: string) => void;
+  toggleTaskCompletedById: (taskId: string) => void;
 }
 
 export interface HeaderProps {
@@ -20,8 +20,8 @@ export interface Task {
 
 export interface TodoItemsProps {
   tasks: Task[];
-  onDelete: (id: number) => void;
-  onComplete: (id: number) => void;
+  onDelete: (id: string) => void;
+  onComplete: (id: string) => void;
 }
 
 export interface TodoItemProps {

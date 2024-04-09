@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TodoItemsProps } from "../../ts/interfaces/Interface";
 import { FaInbox } from "react-icons/fa";
 
@@ -11,8 +11,14 @@ export default function TodoItems({
   onDelete,
   onComplete,
 }: TodoItemsProps) {
-  const [statusFilter, setStatusFilter] = useState("all");
+  const [statusFilter, setStatusFilter] = useState(
+    localStorage.getItem("statusFilter") || "all"
+  );
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("statusFilter", statusFilter);
+  }, [statusFilter]);
 
   const filteredTasks =
     tasks && Array.isArray(tasks)
